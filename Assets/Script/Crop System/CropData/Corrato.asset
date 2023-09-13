@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 758fb6ec2f8042544b7f1c6ccd577c56, type: 3}
+  m_Name: Corrato
+  m_EditorClassIdentifier: 
+  <IsStackable>k__BackingField: 1
+  <MaxStack>k__BackingField: 20
+  <ItemName>k__BackingField: Corrato
+  <ItemDescription>k__BackingField: Is something wrong with this carrot?
+  <ItemImage>k__BackingField: {fileID: -231620825, guid: 466b3c0712a673d46bb3323c4dc88595, type: 3}
+  daysToGrow: 4
+  growProgressSprites:
+  - {fileID: -231620825, guid: 466b3c0712a673d46bb3323c4dc88595, type: 3}
+  - {fileID: -438513170, guid: 466b3c0712a673d46bb3323c4dc88595, type: 3}
+  - {fileID: 2058292733, guid: 466b3c0712a673d46bb3323c4dc88595, type: 3}
+  - {fileID: -1923748299, guid: 466b3c0712a673d46bb3323c4dc88595, type: 3}
+  - {fileID: -1641250307, guid: 466b3c0712a673d46bb3323c4dc88595, type: 3}
+  readyToHarvestSprite: {fileID: 1248922018, guid: 466b3c0712a673d46bb3323c4dc88595, type: 3}
+  purchasePrice: 20
+  sellPrice: 27
