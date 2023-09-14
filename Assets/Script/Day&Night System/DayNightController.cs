@@ -98,5 +98,6 @@ public class DayNightController : MonoBehaviour
     {
         timer = 0;
         days++;
+        CropManager.Instance.CurrentDay = days;
     }
 }

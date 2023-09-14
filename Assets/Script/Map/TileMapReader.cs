@@ -96,6 +96,12 @@ public class TileMapReader : MonoBehaviour
         return CellPosition;
     }
 
+    public Vector3 GetNearPosition(Vector3Int cellPosition)
+    {
+        return tileMap.CellToWorld(cellPosition);
+    }
+
+
     private TileBase FindTileFront()
     {
         TileBase tile = tileMap.GetTile(GetNearCellPosition(.05f));

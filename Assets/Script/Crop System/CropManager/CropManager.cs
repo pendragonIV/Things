@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class CropManager : MonoBehaviour
 {
@@ -8,8 +10,6 @@ public class CropManager : MonoBehaviour
     public int CurrentDay;
     public int CurrentHour;
     public int CurrentMinute;
-
-    public int CurrentSecond;
 
     public int TotalMoney;
 
@@ -19,6 +19,55 @@ public class CropManager : MonoBehaviour
 
     //Singleton
     public static CropManager Instance;
+
+    //Test
+    public TileBase plowed;
+    public TileBase seeded;
+    public Tilemap effectTilemap;
+    public Tilemap plantTilemap;
+
+    public Dictionary<Vector2, CropData> plantedCrops;
+
+    private void Start()
+    {
+        plantedCrops = new Dictionary<Vector2, CropData>();
+    }
+
+    public void Plow(Vector3Int position)
+    {
+        if (effectTilemap.GetTile(position) != null)
+        {
+            return;
+        }
+
+        CreatePlowedTile(position);
+
+    }
+
+    private void CreatePlowedTile(Vector3Int position)
+    {
+        effectTilemap.SetTile(position, plowed);
+    }
+
+    public bool isTileEffected(Vector3Int position)
+    {
+        Debug.Log("check");
+        return effectTilemap.GetTile(position) != null;
+    }
+
+    public void Seed(Vector3 position, Crop crop)
+    {
+        this.selectedCropToPlant = crop.CurrentCrop;
+        plantedCrops.Add((Vector2)position, selectedCropToPlant);
+        CreatePlant(position, crop);
+    }
+
+    private void CreatePlant(Vector3 position, Crop crop)
+    {
+         Crop newCrop = Instantiate(crop, position, Quaternion.identity);
+
+         newCrop.spriteRenderer.sprite = crop.CurrentCrop.growProgressSprites[0];
+    }
 
     private void Awake()
     {

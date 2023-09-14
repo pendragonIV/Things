@@ -26,6 +26,9 @@ public class MarkerController : MonoBehaviour
 
     private TileData tileData;
 
+    //Test
+    public Crop crop;
+
     private void Start()
     {
         tileMapReader = GetComponent<TileMapReader>();
@@ -42,6 +45,24 @@ public class MarkerController : MonoBehaviour
                 Marker();
                 markerTileMap.SetTile(markerPosition, markerTile);
                 oldMarkerPosition = markerPosition;
+
+                if (Input.GetKeyDown(KeyCode.Q))
+                {
+                    if (!CropManager.Instance.isTileEffected(markerPosition))
+                    {
+                        CropManager.Instance.Plow(markerPosition);
+                    }
+                    else
+                    {
+                        Vector3 newCropPosition = tileMapReader.GetNearPosition(markerPosition);
+                        
+                        //tile size is 16*16 so we need to add 8 to get the center of the tile
+                        newCropPosition.y += .08f;
+                        newCropPosition.x += .08f;
+                        CropManager.Instance.Seed(newCropPosition,crop);
+                    }
+                    
+                }
             }
         }
 

@@ -15,5 +15,7 @@ public class CropData : ItemSO
     public int purchasePrice;
     [field: SerializeField]
     public int sellPrice;
+    [field: SerializeField]
+    public int harvestQuantity;
 
 }

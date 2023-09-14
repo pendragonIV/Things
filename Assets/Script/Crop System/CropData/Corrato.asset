@@ -27,3 +27,4 @@ MonoBehaviour:
   readyToHarvestSprite: {fileID: 1248922018, guid: 466b3c0712a673d46bb3323c4dc88595, type: 3}
   purchasePrice: 20
   sellPrice: 27
+  harvestQuantity: 5

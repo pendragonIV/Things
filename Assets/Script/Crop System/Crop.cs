@@ -6,7 +6,8 @@ using UnityEngine.Events;
 
 public class Crop : MonoBehaviour
 {
-    private CropData CurrentCrop;
+    [SerializeField]
+    public CropData CurrentCrop;
     private int PlantDay;
     private int DaysSinceLastWatered;
     public SpriteRenderer spriteRenderer;
