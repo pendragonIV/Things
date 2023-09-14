@@ -25,6 +25,7 @@ public class InventoryItemHolder : MonoBehaviour, IBeginDragHandler, IDropHandle
         deSelect();
     }
 
+    #region Support Methods
     public Sprite getItemSprite()
     {
         return itemImage.sprite;
@@ -53,6 +54,8 @@ public class InventoryItemHolder : MonoBehaviour, IBeginDragHandler, IDropHandle
     {
         itemSelectedBorder.enabled = true;
     }
+
+    #endregion
 
     #region Events
 

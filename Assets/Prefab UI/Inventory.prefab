@@ -1092,6 +1092,7 @@ GameObject:
   - component: {fileID: 4535451382421110000}
   - component: {fileID: 4094332962744164210}
   - component: {fileID: 4709482783414406999}
+  - component: {fileID: 7305616559468516740}
   m_Layer: 5
   m_Name: Inventory
   m_TagString: Untagged
@@ -1200,6 +1201,19 @@ MonoBehaviour:
   inventoryItemHolder: {fileID: 7388758396456414017, guid: 729ab017a56436541a5e44c54e4614a8, type: 3}
   inventoryItemDescription: {fileID: 2477853773156761298}
   mouseFollower: {fileID: 0}
+--- !u!114 &7305616559468516740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3491701305494463543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bc9a5d68bd6b1041b21187b9e93b8d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemSpawn: {fileID: 7425701612381503179, guid: 9a19884da7768ee44b483e94a9204252, type: 3}
 --- !u!1 &3868904761832662804
 GameObject:
   m_ObjectHideFlags: 0

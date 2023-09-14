@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class InventoryPage : MonoBehaviour
 {
@@ -31,7 +32,8 @@ public class InventoryPage : MonoBehaviour
 
     public event Action<int> OnDescriptionRequested,
                        OnItemActionRequested,
-                       OnStartDrag;
+                       OnStartDrag,
+                       OnEndDrag;
 
     public event Action<int, int> OnSwapItems;
 
@@ -89,6 +91,12 @@ public class InventoryPage : MonoBehaviour
             inventoryItemDescription.setDescription(itemImage, itemName, itemDescription,quantity);
         }
     }
+
+    public void ResetItemDescription()
+    {
+        inventoryItemDescription.resetDescription();
+    }
+
     internal void ResetInventory()
     {
         foreach(var holder in itemHolders)
@@ -150,7 +158,7 @@ public class InventoryPage : MonoBehaviour
 
     private void HandleEndDrag(InventoryItemHolder holder)
     {
-        DestroyDraggableItem();
+        OnEndDrag?.Invoke(currentDragIndex);
     }
 
     private void HandleSwap(InventoryItemHolder holder)
@@ -171,6 +179,7 @@ public class InventoryPage : MonoBehaviour
         {
             DeselectAllItem();
             inventoryItemDescription.resetDescription();
+            return;
         }
         else
         {

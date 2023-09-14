@@ -15,9 +15,6 @@ GameObject:
   - component: {fileID: 3709203781057025267}
   - component: {fileID: 4152434014042971853}
   - component: {fileID: 3181961219620683629}
-  - component: {fileID: 8249352152920082574}
-  - component: {fileID: 2734210256477703809}
-  - component: {fileID: 2942940097955028441}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -218,55 +215,6 @@ MonoBehaviour:
   InputHorizontal: 0
   InputVertical: 0
   IsAttack: 0
---- !u!114 &8249352152920082574
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7667178260398601404}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c11b6f9d0b5e1d744a841d997354ba33, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inventoryPage: {fileID: 4709482783414406999, guid: e5fc55e1f4c576b44b73807d3cb61445, type: 3}
-  playerInventory: {fileID: 0}
-  initialItems: []
---- !u!114 &2734210256477703809
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7667178260398601404}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39e38f2b1c7828f48b4bffc5c968c724, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tileMap: {fileID: 0}
-  tileDatas: []
-  player: {fileID: 0}
-  spriteRenderer: {fileID: 0}
---- !u!114 &2942940097955028441
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7667178260398601404}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dac029c7c62a0fb48893342afa8a8766, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  markerTileMap: {fileID: 0}
-  decorationTileMap: {fileID: 0}
-  markerTile: {fileID: 0}
-  markerPosition: {x: 0, y: 0, z: 0}
-  oldMarkerPosition: {x: 0, y: 0, z: 0}
-  tileMapReader: {fileID: 0}
 --- !u!1 &8792305854270505705
 GameObject:
   m_ObjectHideFlags: 0

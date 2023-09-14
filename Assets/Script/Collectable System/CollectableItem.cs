@@ -6,7 +6,7 @@ using UnityEngine;
 public class CollectableItem : MonoBehaviour
 {
     [field: SerializeField]
-    public ItemSO InventoryItem { get; private set; }
+    public ItemSO InventoryItem { get; set; }
     [field: SerializeField]
     public int Quantity { get; set; } = 1;
     [SerializeField]
@@ -31,6 +31,12 @@ public class CollectableItem : MonoBehaviour
         collider2D.enabled = false;
         StartCoroutine(ItemPickupAnimation());
 
+    }
+
+    public void SetItem(InventoryItem item)
+    {
+        this.InventoryItem = item.Item;
+        this.Quantity = item.Quantity;
     }
 
     private IEnumerator ItemPickupAnimation()

@@ -27,7 +27,7 @@ public class TileMapReader : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GetComponent<Player>();
+        spriteRenderer = player.GetComponent<SpriteRenderer>();
 
         dataFromTiles = new Dictionary<TileBase, TileData>();
 

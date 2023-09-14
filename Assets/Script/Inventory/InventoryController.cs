@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class InventoryController : MonoBehaviour
 {
@@ -67,10 +68,12 @@ public class InventoryController : MonoBehaviour
         this.inventoryPage.OnItemActionRequested += HandleItemActionRequest;
         this.inventoryPage.OnStartDrag += HandleStartDrag;
         this.inventoryPage.OnSwapItems += HandleSwapItems;
+        this.inventoryPage.OnEndDrag += HandleEndDrag;
 
         #endregion
 
     }
+
 
     #region Action Handlers
     private void HandleDescriptionRequest(int itemIndex)
@@ -96,9 +99,21 @@ public class InventoryController : MonoBehaviour
         inventoryPage.CreateDraggableItem(item.ItemImage);
     }
 
+    private void HandleEndDrag(int currentDragIndex)
+    {
+        if (!EventSystem.current.IsPointerOverGameObject())
+        {
+            InventoryItem spawnItem = playerInventory.GetItemAt(currentDragIndex);
+
+            InventoryItemSpawnController.instance.SpawnItem(spawnItem);
+
+            playerInventory.DeleteItem(currentDragIndex);
+            inventoryPage.ResetItemDescription();
+        }
+        inventoryPage.DestroyDraggableItem();
+    }
     private void HandleSwapItems(int itemIndex, int itemSwapIndex)
     {
-        Debug.Log("Swapping items");
         playerInventory.SwapItems(itemIndex, itemSwapIndex);
     }
 

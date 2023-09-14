@@ -171,4 +171,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7921560aaf949649961443f81e76d5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectableType: 2
+  <InventoryItem>k__BackingField: {fileID: 0}
+  <Quantity>k__BackingField: 1
+  audioSource: {fileID: 0}
+  AnimationDuration: 1
+  spriteRenderer: {fileID: 0}
+  collider2D: {fileID: 0}

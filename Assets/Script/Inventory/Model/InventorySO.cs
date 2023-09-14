@@ -135,6 +135,24 @@ public class InventorySO : ScriptableObject
         AddItem(item.Item, item.Quantity);
     }
 
+    public void DeleteItem(int itemIndex)
+    {
+
+        if(itemIndex < 0 || itemIndex >= items.Count)
+        {
+            Debug.LogError("Item index is out of range");
+            return;
+        }
+        else if (items[itemIndex].IsEmpty)
+        {
+            Debug.LogError("Item is empty");
+            return;
+        }
+        items[itemIndex] = InventoryItem.GetEmptyItem();
+        InfromDataChange();
+
+    }
+
     public Dictionary<int, InventoryItem> GetItems()
     {
         Dictionary<int, InventoryItem> returnItems = new Dictionary<int, InventoryItem>();
