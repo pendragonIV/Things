@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    
+    #region Status
+
+    public bool isPlayerDead = false;
+    public bool isPlayerCanAttack = true;
+
+    #endregion
+
     public StateMachine stateMachine;
 
     //Reference to the player props

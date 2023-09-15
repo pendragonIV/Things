@@ -11,6 +11,8 @@ public class InventoryPage : MonoBehaviour
 
     [SerializeField]
     private RectTransform itemHolderContainer;
+    [SerializeField] 
+    private RectTransform toolBar;
 
     [SerializeField]
     private InventoryItemHolder inventoryItemHolder;
@@ -44,7 +46,8 @@ public class InventoryPage : MonoBehaviour
         mouseFollower.Toggle(false);
     }
 
-    public void AddItemHolder()
+
+    public void AddItemHolderInventory()
     {
         InventoryItemHolder holder = Instantiate(inventoryItemHolder, Vector3.zero, Quaternion.identity) as InventoryItemHolder;
 
@@ -52,6 +55,22 @@ public class InventoryPage : MonoBehaviour
 
         holder.OnItemClicked += HandleItemSelection;
         holder.OnItemDroppedOn += HandleSwap; 
+        holder.OnItemBeginDrag += HandleBeginDrag;
+        holder.OnItemEndDrag += HandleEndDrag;
+        holder.OnMouseButtonClick += HandleShowItemActions;
+
+
+        itemHolders.Add(holder);
+    }
+
+    public void AddItemHolderToolBar()
+    {
+        InventoryItemHolder holder = Instantiate(inventoryItemHolder, Vector3.zero, Quaternion.identity) as InventoryItemHolder;
+
+        holder.transform.SetParent(toolBar.transform);
+
+        holder.OnItemClicked += HandleItemSelection;
+        holder.OnItemDroppedOn += HandleSwap;
         holder.OnItemBeginDrag += HandleBeginDrag;
         holder.OnItemEndDrag += HandleEndDrag;
         holder.OnMouseButtonClick += HandleShowItemActions;

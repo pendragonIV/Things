@@ -59,7 +59,14 @@ public class InventoryController : MonoBehaviour
     {
         for (int i = 0; i < playerInventory.InventorySize; i++)
         {
-            inventoryPage.AddItemHolder();
+            if(i >= playerInventory.InventorySize - 9)
+            {
+                inventoryPage.AddItemHolderToolBar();
+            }
+            else
+            {
+                inventoryPage.AddItemHolderInventory();
+            }  
         }
 
         #region Set Events
@@ -141,6 +148,15 @@ public class InventoryController : MonoBehaviour
                 isInventoryDisplay = false;
                 
             }
+        }
+
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            GameManager.instance.player.GetComponent<Player>().isPlayerCanAttack = false;
+        }
+        else
+        {
+            GameManager.instance.player.GetComponent<Player>().isPlayerCanAttack = true;
         }
 
 

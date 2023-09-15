@@ -22,9 +22,7 @@ public class CropManager : MonoBehaviour
 
     //Test
     public TileBase plowed;
-    public TileBase seeded;
     public Tilemap effectTilemap;
-    public Tilemap plantTilemap;
 
     public Dictionary<Vector2, CropData> plantedCrops;
 
@@ -33,6 +31,7 @@ public class CropManager : MonoBehaviour
         plantedCrops = new Dictionary<Vector2, CropData>();
     }
 
+    #region Support Methods
     public void Plow(Vector3Int position)
     {
         if (effectTilemap.GetTile(position) != null)
@@ -51,7 +50,6 @@ public class CropManager : MonoBehaviour
 
     public bool isTileEffected(Vector3Int position)
     {
-        Debug.Log("check");
         return effectTilemap.GetTile(position) != null;
     }
 
@@ -69,6 +67,8 @@ public class CropManager : MonoBehaviour
          newCrop.spriteRenderer.sprite = crop.CurrentCrop.growProgressSprites[0];
     }
 
+    #endregion
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -82,12 +82,14 @@ public class CropManager : MonoBehaviour
     {
         this.crop.OnPlantCrop += OnPlantCrop;
         this.crop.OnHarvestCrop += OnHarvestCrop;
+        this.crop.OnWater += Water;
     }
 
     private void OnDisable()
     {
         this.crop.OnPlantCrop -= OnPlantCrop;
         this.crop.OnHarvestCrop -= OnHarvestCrop;
+        this.crop.OnWater -= Water;
     }
 
     // Called when a crop has been planted.
@@ -117,6 +119,16 @@ public class CropManager : MonoBehaviour
     // Called when the buy crop button is pressed.
     public void OnBuyCropButton(CropData crop)
     {
+    }
+
+
+    private void Water(CropData data)
+    {
+            if (!isTileEffected(MarkerController.instance.GetMarkedCellPosition()))
+            {
+                Plow(MarkerController.instance.GetMarkedCellPosition());
+            }
+        
     }
 
 }

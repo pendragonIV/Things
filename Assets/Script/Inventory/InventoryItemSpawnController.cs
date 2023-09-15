@@ -10,7 +10,6 @@ public class InventoryItemSpawnController : MonoBehaviour
     private void Awake()
     {
             instance = this;
-            Debug.Log("InventoryItemSpawnController instance created");
     }
 
     [SerializeField]
@@ -18,7 +17,9 @@ public class InventoryItemSpawnController : MonoBehaviour
 
     public void SpawnItem(InventoryItem item)
     {
-        CollectableItem collectableItem = Instantiate(itemSpawn, Camera.main.ScreenToViewportPoint(Input.mousePosition), Quaternion.identity);
+        Vector3 spawnPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        spawnPosition.z = 1;
+        CollectableItem collectableItem = Instantiate(itemSpawn,spawnPosition, Quaternion.identity);
         collectableItem.SetItem(item);
     }
 

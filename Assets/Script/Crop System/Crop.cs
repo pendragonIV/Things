@@ -12,7 +12,7 @@ public class Crop : MonoBehaviour
     private int DaysSinceLastWatered;
     public SpriteRenderer spriteRenderer;
 
-    public event Action<CropData> OnPlantCrop, OnHarvestCrop;
+    public event Action<CropData> OnPlantCrop, OnHarvestCrop, OnWater;
 
     // Returns the number of days that the crop has been planted for.
     int CropProgress()
@@ -74,6 +74,8 @@ public class Crop : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+
 
 
 }

@@ -40,7 +40,7 @@ public class PlayerBaseState : PlayerState
         InputVertical = player.inputSystem.InputVertical;
 
         #region Switch state based on attack input
-        if (player.inputSystem.IsAttack)
+        if (player.inputSystem.IsAttack && player.isPlayerCanAttack)
         {
             player.inputSystem.ResetAttackInput();
 
@@ -59,6 +59,12 @@ public class PlayerBaseState : PlayerState
             {
                 stateMachine.ChangeState(player.frontAttackState);
             }
+
+        }
+        else
+        {
+
+            player.inputSystem.ResetAttackInput();
 
         }
         #endregion
