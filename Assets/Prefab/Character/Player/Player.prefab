@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3709203781057025267}
   - component: {fileID: 4152434014042971853}
   - component: {fileID: 3181961219620683629}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -195,6 +195,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13c647794c8b9bf4490413bc79899a39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlayerDead: 0
+  isPlayerCanAttack: 1
   playerProps: {fileID: 11400000, guid: a41169f75ea65eb498abebdaf0904427, type: 2}
   inputSystem: {fileID: 0}
   spriteRenderer: {fileID: 0}

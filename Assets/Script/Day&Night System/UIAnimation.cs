@@ -52,4 +52,5 @@ public class UIAnimation : MonoBehaviour
         yield return new WaitForSeconds(animationSpeed);
         animationCoroutine = StartCoroutine(PlayAnimationCoroutine(startSprite, endSprite));
     }
+
 }
