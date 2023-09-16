@@ -10,9 +10,6 @@ public class MarkerController : MonoBehaviour
     private Tilemap markerTileMap;
 
     [SerializeField]
-    private Tilemap decorationTileMap;
-
-    [SerializeField]
     private TileBase markerTile;
 
     [SerializeField]
@@ -51,12 +48,6 @@ public class MarkerController : MonoBehaviour
                 oldMarkerPosition = markerPosition;
             }
         }
-
-        if(Input.GetKeyDown(KeyCode.E))
-        {
-            decorationTileMap.SetTile(markerPosition, null);
-        }
-
 
     }
 

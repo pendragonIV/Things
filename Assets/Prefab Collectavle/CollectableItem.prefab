@@ -94,7 +94,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4077003015419424889}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -175,5 +175,5 @@ MonoBehaviour:
   <Quantity>k__BackingField: 1
   audioSource: {fileID: 0}
   AnimationDuration: 1
-  spriteRenderer: {fileID: 0}
-  collider2D: {fileID: 0}
+  spriteRenderer: {fileID: 2760709839242881267}
+  boxCollider2D: {fileID: 1291030492203533550}

@@ -14,6 +14,7 @@ public class CollectItemSystem : MonoBehaviour
         if(collectableItem != null)
         {
             int remainingQuantity = inventorySO.AddItem(collectableItem.InventoryItem, collectableItem.Quantity);
+
             if(remainingQuantity == 0)
             {
                 collectableItem.DestroyItem();

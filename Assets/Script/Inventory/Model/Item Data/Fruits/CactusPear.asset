@@ -17,3 +17,5 @@ MonoBehaviour:
   <ItemName>k__BackingField: Cactus Pear
   <ItemDescription>k__BackingField: Just a cactus pear
   <ItemImage>k__BackingField: {fileID: 21300000, guid: db18d9dcff209b3418c19e53aa0b7b09, type: 3}
+  purchasePrice: 3
+  sellPrice: 1

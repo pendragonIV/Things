@@ -45,8 +45,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ee8a4b4dbd564a49a4437d2bc374dd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentCrop: {fileID: 11400000, guid: 49a48a577a9d008458cc311f21b6f911, type: 2}
+  CurrentCrop: {fileID: 11400000, guid: 3275ca6a99dfd794386aa9332d955b09, type: 2}
+  PlantDay: 9
+  PlantHour: 15
+  PlantMinute: 58
+  DaysSinceLastWatered: 1
   spriteRenderer: {fileID: 4015427925780077210}
+  cropPosition: {x: -0.71999997, y: -0.08, z: 10}
+  collectableCrop: {fileID: 7425701612381503179, guid: 9a19884da7768ee44b483e94a9204252, type: 3}
+  inventorySO: {fileID: 0}
 --- !u!212 &4015427925780077210
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -88,14 +95,14 @@ SpriteRenderer:
   m_SortingLayerID: -211946961
   m_SortingLayer: -2
   m_SortingOrder: 10
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 1427057376, guid: 466b3c0712a673d46bb3323c4dc88595, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.16, y: 0.16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0

@@ -18,5 +18,9 @@ public class ItemSO : ScriptableObject
     public string ItemDescription { get; set; }
     [field: SerializeField]
     public Sprite ItemImage { get; set; }
+    [field: SerializeField]
+    public int purchasePrice;
+    [field: SerializeField]
+    public int sellPrice;
 
 }

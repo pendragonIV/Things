@@ -21,6 +21,7 @@ public class InventoryItemSpawnController : MonoBehaviour
         spawnPosition.z = 1;
         CollectableItem collectableItem = Instantiate(itemSpawn,spawnPosition, Quaternion.identity);
         collectableItem.SetItem(item);
+        collectableItem.boxCollider2D.enabled = true;
     }
 
 }

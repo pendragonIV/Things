@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 758fb6ec2f8042544b7f1c6ccd577c56, type: 3}
+  m_Name: Peanks
+  m_EditorClassIdentifier: 
+  <IsStackable>k__BackingField: 1
+  <MaxStack>k__BackingField: 20
+  <ItemName>k__BackingField: Peanks
+  <ItemDescription>k__BackingField: Is that bean?
+  <ItemImage>k__BackingField: {fileID: 1427057376, guid: 466b3c0712a673d46bb3323c4dc88595, type: 3}
+  daysToGrow: 3
+  growProgressSprites:
+  - {fileID: 1427057376, guid: 466b3c0712a673d46bb3323c4dc88595, type: 3}
+  - {fileID: -478899477, guid: 466b3c0712a673d46bb3323c4dc88595, type: 3}
+  - {fileID: -1493408354, guid: 466b3c0712a673d46bb3323c4dc88595, type: 3}
+  - {fileID: -137958654, guid: 466b3c0712a673d46bb3323c4dc88595, type: 3}
+  readyToHarvestSprite: {fileID: 842596795, guid: 466b3c0712a673d46bb3323c4dc88595, type: 3}
+  deadCropSprite: {fileID: -700989614, guid: 466b3c0712a673d46bb3323c4dc88595, type: 3}
+  itemSpawnSprite: {fileID: -1239898535, guid: 466b3c0712a673d46bb3323c4dc88595, type: 3}
+  purchasePrice: 10
+  sellPrice: 12
+  harvestQuantity: 6

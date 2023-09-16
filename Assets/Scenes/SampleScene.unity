@@ -1875,6 +1875,7 @@ GameObject:
   - component: {fileID: 415644078}
   - component: {fileID: 415644077}
   - component: {fileID: 415644080}
+  - component: {fileID: 415644081}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1923,12 +1924,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   markerTileMap: {fileID: 2052183327}
-  decorationTileMap: {fileID: 35534973}
   markerTile: {fileID: 11400000, guid: ea99fe156600731428c565bca01f3844, type: 2}
   markerPosition: {x: 0, y: 0, z: 0}
   oldMarkerPosition: {x: 0, y: 0, z: 0}
   tileMapReader: {fileID: 415644078}
-  crop: {fileID: 4285130981284918035, guid: bed8c2fcd88de174cb9bcf1f9aa98ce1, type: 3}
 --- !u!114 &415644078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1973,6 +1972,8 @@ MonoBehaviour:
     Quantity: 1
   - Item: {fileID: 11400000, guid: 49a48a577a9d008458cc311f21b6f911, type: 2}
     Quantity: 5
+  - Item: {fileID: 11400000, guid: 3275ca6a99dfd794386aa9332d955b09, type: 2}
+    Quantity: 7
 --- !u!114 &415644080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1992,9 +1993,26 @@ MonoBehaviour:
   selectedCropToPlant: {fileID: 0}
   crop: {fileID: 4285130981284918035, guid: bed8c2fcd88de174cb9bcf1f9aa98ce1, type: 3}
   plowed: {fileID: 11400000, guid: 99c806f6fa3db9b41bae2461eeb964b9, type: 2}
-  seeded: {fileID: 0}
   effectTilemap: {fileID: 1727713054}
-  plantTilemap: {fileID: 484278177}
+--- !u!114 &415644081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 415644074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5e972b8cbaa99f468a0ae56a461be31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentItemIndex: 0
+  inventorySO: {fileID: 11400000, guid: 535d4ef2da5d1c84da61167ecac8438a, type: 2}
+  decorationTileMap: {fileID: 35534973}
+  inventoryItem:
+    Item: {fileID: 0}
+    Quantity: 0
+  crop: {fileID: 4285130981284918035, guid: bed8c2fcd88de174cb9bcf1f9aa98ce1, type: 3}
 --- !u!1 &484278174
 GameObject:
   m_ObjectHideFlags: 0
@@ -2489,7 +2507,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6760557316651992083, guid: e5fc55e1f4c576b44b73807d3cb61445, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.00007017433
+      value: 28.477282
       objectReference: {fileID: 0}
     - target: {fileID: 7600117907462031825, guid: e5fc55e1f4c576b44b73807d3cb61445, type: 3}
       propertyPath: m_AnchorMax.y
@@ -28883,6 +28901,10 @@ PrefabInstance:
     - target: {fileID: 6959932128013623825, guid: 18f120c01b3ce1a4b818f0a4f9285a90, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8310499020506136810, guid: 18f120c01b3ce1a4b818f0a4f9285a90, type: 3}
+      propertyPath: timeScale
+      value: 20000
       objectReference: {fileID: 0}
     - target: {fileID: 8310499020506136810, guid: 18f120c01b3ce1a4b818f0a4f9285a90, type: 3}
       propertyPath: globalLight

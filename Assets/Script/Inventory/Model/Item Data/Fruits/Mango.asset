@@ -17,3 +17,5 @@ MonoBehaviour:
   <ItemName>k__BackingField: Mango
   <ItemDescription>k__BackingField: Just a simple mango
   <ItemImage>k__BackingField: {fileID: 21300000, guid: 09e9a0a2183f79549aa88b76ae8eba31, type: 3}
+  purchasePrice: 4
+  sellPrice: 2

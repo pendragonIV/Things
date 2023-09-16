@@ -97,6 +97,9 @@ public class InventorySO : ScriptableObject
                     items[i] = items[i].ChangeQuantity(items[i].Quantity + spaceLeft);
                     quantity -= spaceLeft;
                 }
+
+
+                Debug.Log("Add stackable item");
             }
         }
         while (quantity > 0 && !IsInventoryIsFull()) //If there is remaining items and the inventory is not full, add new stackable item
@@ -182,6 +185,11 @@ public class InventorySO : ScriptableObject
     private void InfromDataChange()
     {
         OnDataChange?.Invoke(GetItems());
+    }
+
+    public bool IsItemExist(ItemSO item)
+    {
+        return items.Where(i => i.Item == item).Any();
     }
 }
 

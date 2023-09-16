@@ -17,3 +17,5 @@ MonoBehaviour:
   <ItemName>k__BackingField: Avocado
   <ItemDescription>k__BackingField: Just an simple Avocado
   <ItemImage>k__BackingField: {fileID: 21300000, guid: f64b82b4dd7f8df4fbd5fa723beee0c3, type: 3}
+  purchasePrice: 2
+  sellPrice: 1

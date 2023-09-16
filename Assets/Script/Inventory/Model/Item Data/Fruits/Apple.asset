@@ -17,3 +17,5 @@ MonoBehaviour:
   <ItemName>k__BackingField: Apple
   <ItemDescription>k__BackingField: Just an simple apple
   <ItemImage>k__BackingField: {fileID: 21300000, guid: ae196da80060a314e90d71651f03b53b, type: 3}
+  purchasePrice: 5
+  sellPrice: 2

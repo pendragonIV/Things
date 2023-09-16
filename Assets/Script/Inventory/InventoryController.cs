@@ -146,7 +146,7 @@ public class InventoryController : MonoBehaviour
             {
                 inventoryPage.HideInventory();
                 isInventoryDisplay = false;
-                
+                inventoryPage.currentSelectIndex = -1;
             }
         }
 

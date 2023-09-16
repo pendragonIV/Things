@@ -24,8 +24,11 @@ public class InventoryPage : MonoBehaviour
     private MouseFollower mouseFollower;
 
     private int currentDragIndex = -1;
+    public int currentSelectIndex = -1;
 
     #endregion
+
+    public static InventoryPage Instance;
 
     private List<InventoryItemHolder> itemHolders = new List<InventoryItemHolder>();
 
@@ -44,6 +47,8 @@ public class InventoryPage : MonoBehaviour
     private void Awake()
     {
         mouseFollower.Toggle(false);
+
+        Instance = this;
     }
 
 
@@ -188,8 +193,6 @@ public class InventoryPage : MonoBehaviour
             return;
         }
         OnSwapItems?.Invoke(currentDragIndex, holderIndex);
-
-        HandleItemSelection(holder);
     }
 
     private void HandleItemSelection(InventoryItemHolder holder)
@@ -197,6 +200,7 @@ public class InventoryPage : MonoBehaviour
         if(holder.getItemSprite() == null)
         {
             DeselectAllItem();
+            currentSelectIndex = -1;
             inventoryItemDescription.resetDescription();
             return;
         }
@@ -211,8 +215,8 @@ public class InventoryPage : MonoBehaviour
                 }
             }
         }
-
-        OnDescriptionRequested?.Invoke(itemHolders.IndexOf(holder));
+        currentSelectIndex = itemHolders.IndexOf(holder);
+        OnDescriptionRequested?.Invoke(currentSelectIndex);
 
     }
 

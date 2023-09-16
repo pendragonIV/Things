@@ -35,23 +35,25 @@ public class DayNightController : MonoBehaviour
     [SerializeField]
     private float timeScale = 60f;
     [SerializeField]
-    private int days;
-    #endregion
+    public int days;
 
-    float hour
+    public float hour
     {
         get { return timer / 3600f; }
     }
 
-    float minute
+    public float minute
     {
         get { return (timer % 3600f) / 60f; }
     }
 
-    public float timeOfDay;
+    #endregion
+
+    public static DayNightController instance;
 
     private void Awake()
     {
+        instance = this;
         if(hour > 6 && hour < 18)
         {
             uiAnimation.PlayAnimation(0, 9);
@@ -70,6 +72,7 @@ public class DayNightController : MonoBehaviour
 
         int hourInt = Mathf.FloorToInt(this.hour);
         int minute = Mathf.FloorToInt(this.minute);
+
 
         time.text = hourInt.ToString() + " : " + minute.ToString();
 
@@ -98,6 +101,5 @@ public class DayNightController : MonoBehaviour
     {
         timer = 0;
         days++;
-        CropManager.Instance.CurrentDay = days;
     }
 }

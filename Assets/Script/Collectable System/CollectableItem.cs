@@ -15,20 +15,20 @@ public class CollectableItem : MonoBehaviour
     [SerializeField]
     private float AnimationDuration = 1f;
     [SerializeField]
-    private SpriteRenderer spriteRenderer;
-    [SerializeField]
-    private new BoxCollider2D collider2D;
+    public SpriteRenderer spriteRenderer;
+    
+    public BoxCollider2D boxCollider2D;
 
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = InventoryItem.ItemImage;
-        collider2D = GetComponent<BoxCollider2D>();
+        boxCollider2D = GetComponent<BoxCollider2D>();
     }
 
     public void DestroyItem()
     {
-        collider2D.enabled = false;
+        boxCollider2D.enabled = false;
         StartCoroutine(ItemPickupAnimation());
 
     }

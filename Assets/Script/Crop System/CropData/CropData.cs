@@ -12,10 +12,12 @@ public class CropData : ItemSO
     [field: SerializeField]
     public Sprite readyToHarvestSprite;
     [field: SerializeField]
-    public int purchasePrice;
+    public Sprite deadCropSprite;
     [field: SerializeField]
-    public int sellPrice;
+    public Sprite itemSpawnSprite;
     [field: SerializeField]
     public int harvestQuantity;
+    [field: SerializeField]
+    public bool isAlreadyToHarvest = false;
 
 }
