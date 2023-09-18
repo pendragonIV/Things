@@ -139,13 +139,13 @@ public class Player : MonoBehaviour
     #region Flip Functions
     public void HorizontalFlip(float inputHorizontal)
     {
-        if(inputHorizontal > 0)
+        if(inputHorizontal >= 0)
         {
-            spriteRenderer.flipX = false;
+            transform.localScale = new Vector3(1, 1, 1);
         }
         else if(inputHorizontal < 0)
         {
-            spriteRenderer.flipX = true;
+            transform.localScale = new Vector3(-1, 1, 1);
         }
     }
     #endregion

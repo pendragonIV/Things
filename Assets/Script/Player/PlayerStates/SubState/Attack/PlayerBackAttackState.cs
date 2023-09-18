@@ -21,7 +21,7 @@ public class PlayerBackAttackState : PlayerAttackState
     public override void Enter()
     {
         base.Enter();
-
+        player.HorizontalFlip(0);
         isAttackFinished = true;
     }
 
