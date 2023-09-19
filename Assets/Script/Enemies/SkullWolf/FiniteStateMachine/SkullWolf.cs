@@ -6,7 +6,7 @@ using UnityEngine;
 public class SkullWolf : Enemy
 {
 
-    public EnemiesDataSO skullWolfData;
+    // EnemiesDataSO skullWolfData;
 
     #region Define Animation
 
@@ -21,12 +21,12 @@ public class SkullWolf : Enemy
     private void Awake()
     {
         this.enemyStateMachine = new EnemyStateMachine();
-        this.enemyData = skullWolfData;
+        //this.enemyData = skullWolfData;
         
-        idleState = new SkullWolfIdleState(this, enemyStateMachine, enemyData, SKULL_WOLF_IDLE);
-        attackState = new SkullWolfAttackState(this, enemyStateMachine, enemyData, SKULL_WOLF_ATTACK);
-        deadState = new SkullWolfDeadState(this, enemyStateMachine, enemyData, SKULL_WOLF_DEAD);
-        attackedState = new SkullWolfAttackedState(this, enemyStateMachine, enemyData, SKULL_WOLF_ATTACKED);
+        SideIdleState = new SkullWolfIdleState(this, enemyStateMachine, enemyData, SKULL_WOLF_IDLE);
+        SideAttackState = new SkullWolfAttackState(this, enemyStateMachine, enemyData, SKULL_WOLF_ATTACK);
+        SideDeadState = new SkullWolfDeadState(this, enemyStateMachine, enemyData, SKULL_WOLF_DEAD);
+        SideHitState = new SkullWolfAttackedState(this, enemyStateMachine, enemyData, SKULL_WOLF_ATTACKED);
 
     }
 
@@ -39,7 +39,7 @@ public class SkullWolf : Enemy
 
         spawnPosition = transform.position;
 
-        enemyStateMachine.Initialize(idleState);
+        enemyStateMachine.Initialize(SideIdleState);
     }
 
     // Update is called once per frame

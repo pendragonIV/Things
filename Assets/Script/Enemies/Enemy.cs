@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour
 {
+    #region Components
     public Animator animator;
 
     public EnemyStateMachine enemyStateMachine;
@@ -16,6 +17,8 @@ public abstract class Enemy : MonoBehaviour
 
     [field: SerializeField]
     public Transform playerDetect { get; private set; }
+
+    #endregion
 
     [field: SerializeField]
     public Vector3 spawnPosition;
@@ -30,10 +33,16 @@ public abstract class Enemy : MonoBehaviour
     #endregion
 
     #region Declare States
-    public EnemyState idleState;
-    public EnemyState attackState;
-    public EnemyState deadState;
-    public EnemyState attackedState;
+    public EnemyState FrontIdleState;
+    public EnemyState FrontAttackState;
+    public EnemyState FrontDeadState;
+    public EnemyState FrontRunState;
+    public EnemyState FrontHitState;
+
+    public EnemyState SideIdleState;
+    public EnemyState SideAttackState;
+    public EnemyState SideDeadState;
+    public EnemyState SideHitState;
     #endregion
 
     public virtual bool  checkPlayerInRange()
