@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SkullWolfAttackState : SkullWolfState
+public class SkullWolfAttackState : EnemyState
 {
 
     private bool isDetectingPlayer;
     private bool isOutOfRange;
     
 
-    public SkullWolfAttackState(SkullWolf skullWolf, SkullWolfStateMachine skullWolfStateMachine, EnemiesDataSO skullWolfData, string animationName) : base(skullWolf, skullWolfStateMachine, skullWolfData, animationName)
+    public SkullWolfAttackState(SkullWolf skullWolf, EnemyStateMachine skullWolfStateMachine, EnemiesDataSO skullWolfData, string animationName) : base(skullWolf, skullWolfStateMachine, skullWolfData, animationName)
     {
     }
 
@@ -40,11 +40,11 @@ public class SkullWolfAttackState : SkullWolfState
     {
         base.LogicUpdate();
 
-        isDetectingPlayer = skullWolf.checkPlayerInRange();
+        isDetectingPlayer = enemy.checkPlayerInRange();
 
         if(isDetectingPlayer)
         {
-            if(skullWolf.DistanceFromSpawn() >= 5)
+            if(enemy.DistanceFromSpawn() >= 5)
             {
                 isOutOfRange = true;
             }
@@ -55,9 +55,9 @@ public class SkullWolfAttackState : SkullWolfState
             isOutOfRange = true;
         }
 
-        if(isOutOfRange && skullWolf.DistanceFromSpawn() <= 1f)
+        if(isOutOfRange && enemy.DistanceFromSpawn() <= 1f)
         {
-            skullWolfStateMachine.ChangeState(skullWolf.idleState);
+            enemyStateMachine.ChangeState(enemy.idleState);
         }
     }
 
@@ -67,16 +67,16 @@ public class SkullWolfAttackState : SkullWolfState
 
         if (isDetectingPlayer && !isOutOfRange)
         {
-            if (skullWolf.DistanceFromPlayer() >= skullWolfData.attackRange)
+            if (enemy.DistanceFromPlayer() >= enemyData.attackRange)
             {
-                skullWolf.MoveToPlayer();
-                skullWolf.spriteRenderer.flipX = skullWolf.CheckXPlayer();
+                enemy.MoveToPlayer();
+                enemy.spriteRenderer.flipX = enemy.CheckXPlayer();
             }
         }
         else
         {
-            skullWolf.MoveToSpawn();
-            skullWolf.spriteRenderer.flipX = skullWolf.CheckXSpawn();
+            enemy.MoveToSpawn();
+            enemy.spriteRenderer.flipX = enemy.CheckXSpawn();
         }
     }
 }

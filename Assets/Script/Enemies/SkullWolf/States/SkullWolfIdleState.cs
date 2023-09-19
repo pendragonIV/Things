@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SkullWolfIdleState : SkullWolfState
+public class SkullWolfIdleState : EnemyState
 {
-    public SkullWolfIdleState(SkullWolf skullWolf, SkullWolfStateMachine skullWolfStateMachine, EnemiesDataSO skullWolfData, string animationName) : base(skullWolf, skullWolfStateMachine, skullWolfData, animationName)
+    public SkullWolfIdleState(SkullWolf skullWolf, EnemyStateMachine skullWolfStateMachine, EnemiesDataSO skullWolfData, string animationName) : base(skullWolf, skullWolfStateMachine, skullWolfData, animationName)
     {
     }
 
@@ -21,8 +21,8 @@ public class SkullWolfIdleState : SkullWolfState
     public override void Enter()
     {
         base.Enter();
-        skullWolf.SetVelocityX(0f);
-        skullWolf.SetVelocityY(0f);
+        enemy.SetVelocityX(0f);
+        enemy.SetVelocityY(0f);
     }
 
     public override void Exit()
@@ -34,9 +34,9 @@ public class SkullWolfIdleState : SkullWolfState
     {
         base.LogicUpdate();
 
-        if (skullWolf.checkPlayerInRange())
+        if (enemy.checkPlayerInRange())
         {
-            skullWolfStateMachine.ChangeState(skullWolf.attackState);
+            enemyStateMachine.ChangeState(enemy.attackState);
         }
 
     }

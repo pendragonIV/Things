@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SkullWolfState
+public class EnemyState
 {
-    protected SkullWolf skullWolf;
-    protected SkullWolfStateMachine skullWolfStateMachine;
-    protected EnemiesDataSO skullWolfData;
+    protected Enemy enemy;
+    protected EnemyStateMachine enemyStateMachine;
+    protected EnemiesDataSO enemyData;
 
     // Time when the state started, it get set eveytime the state is entered
     // => how long we've been in the state
@@ -17,11 +17,11 @@ public class SkullWolfState
 
 
     //Constructor
-    public SkullWolfState(SkullWolf skullWolf, SkullWolfStateMachine skullWolfStateMachine, EnemiesDataSO skullWolfData, string animationName)
+    public EnemyState(Enemy enemy, EnemyStateMachine enemyStateMachine, EnemiesDataSO enemyData, string animationName)
     {
-        this.skullWolf = skullWolf;
-        this.skullWolfStateMachine = skullWolfStateMachine;
-        this.skullWolfData = skullWolfData;
+        this.enemy = enemy;
+        this.enemyStateMachine = enemyStateMachine;
+        this.enemyData = enemyData;
         this.animationName = animationName;
     }
 
@@ -36,7 +36,7 @@ public class SkullWolfState
         startTime = Time.time;
 
         //Play the animation
-        skullWolf.animator.Play(animationName);
+        enemy.animator.Play(animationName);
 
         //Debug.Log("Entered " + animationName);
 
@@ -46,7 +46,7 @@ public class SkullWolfState
     public virtual void Exit()
     {
         //Stop the animation
-        skullWolf.animator.StopPlayback();
+        enemy.animator.StopPlayback();
     }
 
 

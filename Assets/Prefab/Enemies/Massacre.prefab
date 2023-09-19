@@ -123,13 +123,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 5427592537148013488}
-  skullWolfData: {fileID: 11400000, guid: 9ec6fe61ba8425745b59c8f0f8c801c1, type: 2}
   spriteRenderer: {fileID: 4276073455496267528}
   rb: {fileID: 7965929568057558502}
+  enemyData: {fileID: 11400000, guid: 9ec6fe61ba8425745b59c8f0f8c801c1, type: 2}
   <playerDetect>k__BackingField: {fileID: 5764768710947667748}
   spawnPosition: {x: 0, y: 0, z: 0}
   <distanceFromPlayer>k__BackingField: 0
+  movement: {x: 0, y: 0}
   currentVelocity: {x: 0, y: 0}
+  skullWolfData: {fileID: 11400000, guid: 9ec6fe61ba8425745b59c8f0f8c801c1, type: 2}
 --- !u!50 &7965929568057558502
 Rigidbody2D:
   serializedVersion: 4
