@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class FurDevilFrontRun : FurDevilBaseState
 {
-    private bool isDetectingPlayer;
-    private bool isOutOfRange;
-    private bool isInAttackRange = false;
-
     public FurDevilFrontRun(Enemy enemy, EnemyStateMachine enemyStateMachine, EnemiesDataSO enemyData, string animationName) : base(enemy, enemyStateMachine, enemyData, animationName)
     {
     }
@@ -25,6 +21,9 @@ public class FurDevilFrontRun : FurDevilBaseState
     public override void Enter()
     {
         base.Enter();
+        base.isOutOfRange = false;
+        base.isInAttackRange = false;
+        base.isDetectingPlayer = true;
     }
 
     public override void Exit()
@@ -42,27 +41,26 @@ public class FurDevilFrontRun : FurDevilBaseState
         {
             if (enemy.DistanceFromSpawn() >= 5)
             {
-                isOutOfRange = true;
+                base.isOutOfRange = true;
             }
             else if (enemy.DistanceFromPlayer() <= enemyData.attackRange)
             {
-                isInAttackRange = true;
+                base.isInAttackRange = true;
             }
 
         }
         else
         {
-            isOutOfRange = true;
+            base.isOutOfRange = true;
         }
 
         if (isOutOfRange && enemy.DistanceFromSpawn() <= .5f)
         {
             enemyStateMachine.ChangeState(enemy.FrontIdleState);
-            isOutOfRange = false;
         }
         else if (isInAttackRange)
         {
-            //enemyStateMachine.ChangeState(enemy.FrontAttackState);
+            enemyStateMachine.ChangeState(enemy.FrontAttackState);
         }
     }
 

@@ -1854,7 +1854,7 @@ Transform:
   m_GameObject: {fileID: 177913152}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.375, y: 0.203, z: -10}
+  m_LocalPosition: {x: -0.138, y: -0.02, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2265,7 +2265,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.375, y: 0.203, z: -10}
+  m_LocalPosition: {x: -0.138, y: -0.02, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2519,7 +2519,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6760557316651992083, guid: e5fc55e1f4c576b44b73807d3cb61445, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.00006603117
+      value: -0.00001666175
       objectReference: {fileID: 0}
     - target: {fileID: 7600117907462031825, guid: e5fc55e1f4c576b44b73807d3cb61445, type: 3}
       propertyPath: m_AnchorMax.y
@@ -26659,11 +26659,11 @@ PrefabInstance:
       objectReference: {fileID: 35534973}
     - target: {fileID: 3973718981161542498, guid: 9e77c775a3c23fe4da927188ea984855, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.375
+      value: -0.138
       objectReference: {fileID: 0}
     - target: {fileID: 3973718981161542498, guid: 9e77c775a3c23fe4da927188ea984855, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.203
+      value: -0.02
       objectReference: {fileID: 0}
     - target: {fileID: 3973718981161542498, guid: 9e77c775a3c23fe4da927188ea984855, type: 3}
       propertyPath: m_LocalPosition.z
@@ -28830,6 +28830,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pot
       objectReference: {fileID: 0}
+    - target: {fileID: 7422046076121196013, guid: d0557f2981fef59418cc6dface12c014, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -28989,7 +28993,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8310499020506136810, guid: 18f120c01b3ce1a4b818f0a4f9285a90, type: 3}
       propertyPath: timeScale
-      value: 20000
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8310499020506136810, guid: 18f120c01b3ce1a4b818f0a4f9285a90, type: 3}
       propertyPath: globalLight

@@ -23,6 +23,9 @@ public class FurDevil : Enemy
 
         FrontIdleState = new FurDevilFrontIdle(this, enemyStateMachine, enemyData, FUR_DEVIL_FRONT_IDLE);
         FrontRunState = new FurDevilFrontRun(this, enemyStateMachine, enemyData, FUR_DEVIL_FRONT_RUN);
+        FrontAttackState = new FurDevilFrontAttack(this, enemyStateMachine, enemyData, FUR_DEVIL_FRONT_ATTACK);
+        FrontHitState = new FurDevilFrontHit(this, enemyStateMachine, enemyData, FUR_DEVIL_FRONT_HIT);
+        FrontDeadState = new FurDevilFrontDead(this, enemyStateMachine, enemyData, FUR_DEVIL_FRONT_DEAD);
     }
 
     // Start is called before the first frame update

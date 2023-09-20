@@ -24,6 +24,9 @@ public abstract class Enemy : MonoBehaviour
     public Vector3 spawnPosition;
 
     [field: SerializeField]
+    public bool isHit;
+
+    [field: SerializeField]
     public float distanceFromPlayer { get; private set; }
 
     #region Movement Variables
@@ -68,8 +71,9 @@ public abstract class Enemy : MonoBehaviour
 
     public virtual void MoveToPlayer()
     {
-        //this.rb.MovePosition(this.transform.position + (GameManager.instance.player.transform.position - this.transform.position).normalized * skullWolfData.moveSpeed * Time.deltaTime);
-        this.transform.position = Vector3.MoveTowards(this.transform.position, GameManager.instance.player.transform.position, enemyData.moveSpeed * Time.deltaTime);
+        currentVelocity = Vector3.MoveTowards(this.transform.position, GameManager.instance.player.transform.position, enemyData.moveSpeed * Time.deltaTime);
+        this.rb.MovePosition(currentVelocity);
+
     }
 
     public virtual void MoveToSpawn()
@@ -79,6 +83,22 @@ public abstract class Enemy : MonoBehaviour
 
         this.transform.position = Vector3.MoveTowards(this.transform.position, spawnPosition, enemyData.moveSpeed * Time.deltaTime);
     }
+    #endregion
+
+    #region Check Hit Functions
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        isHit = true;
+
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        isHit = false;
+    }
+
+
     #endregion
 
     #region Check position functions

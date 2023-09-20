@@ -2,13 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FurDevilBaseState : EnemyState
+public class FurDevilFrontDead : FurDevilBaseState
 {
-    protected bool isDetectingPlayer;
-    protected bool isOutOfRange;
-    protected bool isInAttackRange;
-
-    public FurDevilBaseState(Enemy enemy, EnemyStateMachine enemyStateMachine, EnemiesDataSO enemyData, string animationName) : base(enemy, enemyStateMachine, enemyData, animationName)
+    public FurDevilFrontDead(Enemy enemy, EnemyStateMachine enemyStateMachine, EnemiesDataSO enemyData, string animationName) : base(enemy, enemyStateMachine, enemyData, animationName)
     {
     }
 

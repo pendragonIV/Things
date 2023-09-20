@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FurDevilFrontIdle : FurDevilBaseState
+public class FurDevilFrontAttack : FurDevilBaseState
 {
-    public FurDevilFrontIdle(Enemy enemy, EnemyStateMachine enemyStateMachine, EnemiesDataSO enemyData, string animationName) : base(enemy, enemyStateMachine, enemyData, animationName)
+    
+    public FurDevilFrontAttack(Enemy enemy, EnemyStateMachine enemyStateMachine, EnemiesDataSO enemyData, string animationName) : base(enemy, enemyStateMachine, enemyData, animationName)
     {
     }
 
@@ -21,9 +22,9 @@ public class FurDevilFrontIdle : FurDevilBaseState
     public override void Enter()
     {
         base.Enter();
-        base.isInAttackRange = false;
+        base.isDetectingPlayer = true;
         base.isOutOfRange = false;
-        base.isDetectingPlayer = false;
+        base.isInAttackRange = true;
     }
 
     public override void Exit()
@@ -35,13 +36,17 @@ public class FurDevilFrontIdle : FurDevilBaseState
     {
         base.LogicUpdate();
 
-        if (enemy.checkPlayerInRange())
+        if(enemy.DistanceFromPlayer() > enemyData.attackRange)
         {
-            isDetectingPlayer = true;
+            base.isInAttackRange = false;
             enemyStateMachine.ChangeState(enemy.FrontRunState);
         }
+        else if (enemy.isHit)
+        {
+            enemyStateMachine.ChangeState(enemy.FrontHitState);
+        }
     }
-    
+
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();

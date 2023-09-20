@@ -2,13 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FurDevilBaseState : EnemyState
+public class FurDevilFrontHit : FurDevilBaseState
 {
-    protected bool isDetectingPlayer;
-    protected bool isOutOfRange;
-    protected bool isInAttackRange;
-
-    public FurDevilBaseState(Enemy enemy, EnemyStateMachine enemyStateMachine, EnemiesDataSO enemyData, string animationName) : base(enemy, enemyStateMachine, enemyData, animationName)
+    public FurDevilFrontHit(Enemy enemy, EnemyStateMachine enemyStateMachine, EnemiesDataSO enemyData, string animationName) : base(enemy, enemyStateMachine, enemyData, animationName)
     {
     }
 
@@ -33,8 +29,9 @@ public class FurDevilBaseState : EnemyState
     }
 
     public override void LogicUpdate()
-    {
+    { 
         base.LogicUpdate();
+        
     }
 
     public override void PhysicsUpdate()

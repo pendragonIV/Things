@@ -131,7 +131,6 @@ MonoBehaviour:
   <distanceFromPlayer>k__BackingField: 0
   movement: {x: 0, y: 0}
   currentVelocity: {x: 0, y: 0}
-  skullWolfData: {fileID: 11400000, guid: 9ec6fe61ba8425745b59c8f0f8c801c1, type: 2}
 --- !u!50 &7965929568057558502
 Rigidbody2D:
   serializedVersion: 4
