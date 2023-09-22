@@ -62,6 +62,10 @@ public class FurDevilFrontRun : FurDevilBaseState
         {
             enemyStateMachine.ChangeState(enemy.FrontAttackState);
         }
+        else if (enemy.isHit)
+        {
+            enemyStateMachine.ChangeState(enemy.FrontHitState);
+        }
     }
 
     public override void PhysicsUpdate()

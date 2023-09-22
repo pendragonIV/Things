@@ -40,6 +40,10 @@ public class FurDevilFrontIdle : FurDevilBaseState
             isDetectingPlayer = true;
             enemyStateMachine.ChangeState(enemy.FrontRunState);
         }
+        else if (enemy.isHit)
+        {
+            enemyStateMachine.ChangeState(enemy.FrontHitState);
+        }
     }
     
     public override void PhysicsUpdate()

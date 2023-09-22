@@ -31,10 +31,18 @@ public class FurDevilFrontDead : FurDevilBaseState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+
+        if (!enemy.isAnimationPlaying(animationName))
+        {
+            enemy.Die();
+        }
+            
     }
 
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
+        enemy.SetVelocityX(0);
+        enemy.SetVelocityY(0);
     }
 }

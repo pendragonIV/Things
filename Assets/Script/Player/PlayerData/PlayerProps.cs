@@ -10,6 +10,7 @@ public class PlayerProps : ScriptableObject
     [Header("Base status")]
 
     public float maxHealth = 20f;
+    public float baseDamage = 3f;
 
     [Header("Base State")]
     public float walkSpeed = 1f;

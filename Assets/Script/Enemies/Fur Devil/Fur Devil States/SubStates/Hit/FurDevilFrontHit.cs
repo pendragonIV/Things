@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FurDevilFrontHit : FurDevilBaseState
 {
+    private bool isKnokedBack;
     public FurDevilFrontHit(Enemy enemy, EnemyStateMachine enemyStateMachine, EnemiesDataSO enemyData, string animationName) : base(enemy, enemyStateMachine, enemyData, animationName)
     {
     }
@@ -21,6 +22,9 @@ public class FurDevilFrontHit : FurDevilBaseState
     public override void Enter()
     {
         base.Enter();
+        isKnokedBack = false;
+        enemy.TakeDamage(GameManager.instance.player.GetComponent<Player>().playerBaseDamage);
+        enemy.isDead = enemy.CheckDead();
     }
 
     public override void Exit()
@@ -31,11 +35,38 @@ public class FurDevilFrontHit : FurDevilBaseState
     public override void LogicUpdate()
     { 
         base.LogicUpdate();
-        
+        if (!enemy.isHit)
+        {
+            isInAttackRange = enemy.DistanceFromPlayer() <= enemyData.attackRange;
+
+            if (isInAttackRange)
+            {
+                enemyStateMachine.ChangeState(enemy.FrontAttackState);
+            }
+            else
+            {
+                enemyStateMachine.ChangeState(enemy.FrontRunState);
+            }
+            
+        }
+        else
+        {
+            if (enemy.isDead)
+            {
+                enemyStateMachine.ChangeState(enemy.FrontDeadState);
+            }
+        }
+
     }
 
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
+        if(enemy.isHit && !isKnokedBack)
+        {
+            enemy.KnockBack();
+            enemy.StartCoroutine(enemy.KnockBackTimer());
+            isKnokedBack = true;
+        }
     }
 }

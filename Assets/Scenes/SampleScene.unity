@@ -2519,7 +2519,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6760557316651992083, guid: e5fc55e1f4c576b44b73807d3cb61445, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.00001666175
+      value: 0.00015487892
       objectReference: {fileID: 0}
     - target: {fileID: 7600117907462031825, guid: e5fc55e1f4c576b44b73807d3cb61445, type: 3}
       propertyPath: m_AnchorMax.y
@@ -26766,10 +26766,23 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9048839077509170382, guid: 9e77c775a3c23fe4da927188ea984855, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9048839077509170382, guid: 9e77c775a3c23fe4da927188ea984855, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9048839077509170382, guid: 9e77c775a3c23fe4da927188ea984855, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9048839077509170382, guid: 9e77c775a3c23fe4da927188ea984855, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 79b9c85d29f86df42bf75ce5113d4745, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5154446188852647156, guid: 9e77c775a3c23fe4da927188ea984855, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:

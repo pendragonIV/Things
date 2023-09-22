@@ -19,6 +19,8 @@ public class FurDevil : Enemy
 
     private void Awake()
     {
+        this.health = this.enemyData.maxHealth;
+
         enemyStateMachine = new EnemyStateMachine();
 
         FrontIdleState = new FurDevilFrontIdle(this, enemyStateMachine, enemyData, FUR_DEVIL_FRONT_IDLE);

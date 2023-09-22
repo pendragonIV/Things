@@ -20,6 +20,7 @@ public abstract class Enemy : MonoBehaviour
 
     #endregion
 
+    #region Props
     [field: SerializeField]
     public Vector3 spawnPosition;
 
@@ -27,7 +28,15 @@ public abstract class Enemy : MonoBehaviour
     public bool isHit;
 
     [field: SerializeField]
+    public bool isDead = false;
+
+    [field: SerializeField]
+    public float health;
+
+    [field: SerializeField]
     public float distanceFromPlayer { get; private set; }
+
+    #endregion
 
     #region Movement Variables
     //Vector 2 for movement
@@ -72,6 +81,7 @@ public abstract class Enemy : MonoBehaviour
     public virtual void MoveToPlayer()
     {
         currentVelocity = Vector3.MoveTowards(this.transform.position, GameManager.instance.player.transform.position, enemyData.moveSpeed * Time.deltaTime);
+
         this.rb.MovePosition(currentVelocity);
 
     }
@@ -83,21 +93,80 @@ public abstract class Enemy : MonoBehaviour
 
         this.transform.position = Vector3.MoveTowards(this.transform.position, spawnPosition, enemyData.moveSpeed * Time.deltaTime);
     }
+
     #endregion
 
-    #region Check Hit Functions
+    #region KnockBack Functions
+    public virtual void KnockBack()
+    {
+        if (isHit)
+        {
+            Vector2 difference = this.transform.position - GameManager.instance.player.transform.position;
+            difference = difference.normalized * enemyData.knockBackForce;
+            rb.AddForce(difference, ForceMode2D.Impulse);
+        }
+    }
+
+    public IEnumerator KnockBackTimer()
+    {
+        yield return new WaitForSeconds(0.2f);
+        SetVelocityX(0);
+        SetVelocityY(0);
+    }
+    #endregion
+
+
+    #region Hit Functions
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        isHit = true;
+        if (collision.gameObject.CompareTag("PlayerHit"))
+        {
+            isHit = true;
+        }
+        else if (collision.gameObject.CompareTag("PlayerHurtBox"))
+        {
+            var player = GameManager.instance.player.GetComponent<Player>();
+            player.isPlayerAttacked = true;
+            player.TakeDamage(this.enemyData.attackDamage);
+
+        }
 
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        isHit = false;
+        if (collision.gameObject.CompareTag("PlayerHit"))
+        {
+            isHit = false;
+        }
+        else if (collision.gameObject.CompareTag("PlayerHurtBox"))
+        {
+            GameManager.instance.player.GetComponent<Player>().isPlayerAttacked = false;
+        }
     }
 
+    public void TakeDamage(float damage)
+    {
+        this.health -= damage;
+    }
+    
+    public bool CheckDead()
+    {
+        if(this.health <= 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public void Die()
+    {
+        Destroy(this.gameObject);
+    }
 
     #endregion
 
