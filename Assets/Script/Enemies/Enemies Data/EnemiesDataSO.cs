@@ -20,5 +20,7 @@ public class EnemiesDataSO : ScriptableObject
 
     [field: SerializeField]
     public float detectRange { get; private set; }
+    [field: SerializeField]
+    public float knockBackForce { get; private set; }
 
 }

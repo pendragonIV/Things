@@ -8,6 +8,14 @@ public class Player : MonoBehaviour
 
     public bool isPlayerDead = false;
     public bool isPlayerCanAttack = true;
+    public bool isPlayerAttacked = false;
+
+    #endregion
+
+    #region Player Stats
+
+    public float playerHealth;
+    public float playerBaseDamage;
 
     #endregion
 
@@ -71,6 +79,9 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
+        playerHealth = playerProps.maxHealth;
+        playerBaseDamage = playerProps.baseDamage;
+
         stateMachine = new StateMachine();
 
         #region Create States
@@ -113,6 +124,14 @@ public class Player : MonoBehaviour
         currentVelocity = rb.velocity;
         stateMachine.CurrentState.DoCheckUpdate();
         stateMachine.CurrentState.LogicUpdate();
+
+
+        //This check will be decible again when have DeadState
+        if (CheckDead())
+        {
+            isPlayerDead = true;
+            this.gameObject.SetActive(false);
+        }
     }
 
     void FixedUpdate()
@@ -173,6 +192,24 @@ public class Player : MonoBehaviour
         {
             return false;
         }
+    }
+
+    #endregion
+
+    #region Damage Functions
+
+    public void TakeDamage(float damage)
+    {
+        this.playerHealth -= damage;
+    }
+
+    public bool CheckDead()
+    {
+        if(playerHealth <= 0)
+        {
+            return true;
+        }
+        return false;
     }
 
     #endregion
