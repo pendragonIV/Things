@@ -1,11 +1,15 @@
 # Things
-This is my second project working with unity. In this project, i used lot of Design pattern like Finite State Machine, MVC Model, Builder,.. and SOLID principles. There are some preview of this project, it will be updated as soon as I finish a new feature.
+This is my second project working with unity. In this project, i used lot of Design pattern like Finite State Machine, MVC Model, Builder, Singleton,.. and SOLID principles. There are some preview of this project, it will be updated as soon as I finish a new feature.
 
 
 https://github.com/pendragonIV/Things/assets/88123140/e956e9a0-5244-413d-a414-caeda019fbeb
 
 
 https://github.com/pendragonIV/Things/assets/88123140/8c0a9386-de8e-4897-8a0d-19802ca51998
+
+
+https://github.com/pendragonIV/Things/assets/88123140/3f5d10ce-e393-4b70-ac32-e7e73db729ee
+
 
 
 https://github.com/pendragonIV/Things/assets/88123140/c50d69ad-42b7-4f53-a49c-bfffe2218e95
