@@ -8,6 +8,8 @@ TagManager:
   - PlayerHit
   - EnemyHit
   - PlayerHurtBox
+  - ToWorld
+  - ToHouse
   layers:
   - Default
   - TransparentFX
@@ -21,7 +23,7 @@ TagManager:
   - EnemyHitbox
   - PlayerHurtBox
   - EnemyHurtBox
-  - 
+  - SceneTrigger
   - 
   - 
   - 
@@ -42,6 +44,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: House
+    uniqueID: 622747453
+    locked: 0
   - name: Ground
     uniqueID: 3767242455
     locked: 0
@@ -53,4 +58,7 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: UI
+    uniqueID: 1738879427
     locked: 0

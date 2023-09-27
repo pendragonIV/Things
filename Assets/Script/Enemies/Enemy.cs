@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour
@@ -18,6 +19,9 @@ public abstract class Enemy : MonoBehaviour
     [field: SerializeField]
     public Transform playerDetect { get; private set; }
 
+    [field: SerializeField]
+    public UnitHealth unitHealth { get; set; }
+
     #endregion
 
     #region Props
@@ -31,10 +35,36 @@ public abstract class Enemy : MonoBehaviour
     public bool isDead = false;
 
     [field: SerializeField]
-    public float health;
-
-    [field: SerializeField]
     public float distanceFromPlayer { get; private set; }
+
+    #endregion
+
+    void Start()
+    {
+
+        rb = gameObject.GetComponent<Rigidbody2D>();
+        animator = gameObject.GetComponent<Animator>();
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        unitHealth = gameObject.GetComponent<UnitHealth>();
+
+        SetCurrentHealth(enemyData.maxHealth);
+        SetCurrentMaxHealth(enemyData.maxHealth);
+
+        enemyStateMachine.Initialize(FrontIdleState);
+
+        spawnPosition = transform.position;
+    }
+
+    #region Health Functions
+
+    public void SetCurrentHealth(float currentHealth)
+    {
+        this.unitHealth.CurrentHealth = currentHealth;
+    }
+    public void SetCurrentMaxHealth(float currentMaxHealth)
+    {
+        this.unitHealth.CurrentMaxHealth = currentMaxHealth;
+    }
 
     #endregion
 
@@ -145,15 +175,10 @@ public abstract class Enemy : MonoBehaviour
             GameManager.instance.player.GetComponent<Player>().isPlayerAttacked = false;
         }
     }
-
-    public void TakeDamage(float damage)
-    {
-        this.health -= damage;
-    }
     
     public bool CheckDead()
     {
-        if(this.health <= 0)
+        if(this.unitHealth.CurrentHealth <= 0)
         {
             return true;
         }
@@ -165,7 +190,14 @@ public abstract class Enemy : MonoBehaviour
 
     public void Die()
     {
-        Destroy(this.gameObject);
+        if(this.transform.parent.gameObject != null)
+        {
+            Destroy(this.transform.parent.gameObject);
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     #endregion

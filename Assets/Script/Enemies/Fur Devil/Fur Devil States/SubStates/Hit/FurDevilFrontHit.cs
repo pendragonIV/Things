@@ -23,7 +23,7 @@ public class FurDevilFrontHit : FurDevilBaseState
     {
         base.Enter();
         isKnokedBack = false;
-        enemy.TakeDamage(GameManager.instance.player.GetComponent<Player>().playerBaseDamage);
+        enemy.unitHealth.TakeDamage(GameManager.instance.player.GetComponent<Player>().playerBaseDamage);
         enemy.isDead = enemy.CheckDead();
     }
 
