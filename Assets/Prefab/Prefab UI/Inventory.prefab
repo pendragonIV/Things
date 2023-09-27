@@ -1198,9 +1198,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemHolderContainer: {fileID: 8982229643481866740}
+  toolBar: {fileID: 0}
   inventoryItemHolder: {fileID: 7388758396456414017, guid: 729ab017a56436541a5e44c54e4614a8, type: 3}
   inventoryItemDescription: {fileID: 2477853773156761298}
   mouseFollower: {fileID: 0}
+  currentSelectIndex: -1
 --- !u!114 &7305616559468516740
 MonoBehaviour:
   m_ObjectHideFlags: 0

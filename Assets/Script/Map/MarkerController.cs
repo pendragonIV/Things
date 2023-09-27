@@ -27,7 +27,14 @@ public class MarkerController : MonoBehaviour
 
     private void Awake()
     {
-        instance = this;
+        if(instance != null && instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+        }
     }
 
     private void Start()
@@ -60,6 +67,7 @@ public class MarkerController : MonoBehaviour
     public Vector3 GetMarkedPosition()
     {
         Vector3 newCropPosition = tileMapReader.GetNearPosition(markerPosition);
+ 
 
         //tile size is 16*16 so we need to add 8 to get the center of the tile
         newCropPosition.y += .08f;

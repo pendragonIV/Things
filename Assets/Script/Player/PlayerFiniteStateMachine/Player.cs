@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class Player : MonoBehaviour
 
     #region Player Stats
 
+    public float playerMaxHealth;
     public float playerHealth;
     public float playerBaseDamage;
 
@@ -22,8 +24,8 @@ public class Player : MonoBehaviour
     public StateMachine stateMachine;
 
     //Reference to the player props
-    [SerializeField]
-    private PlayerProps playerProps;
+    [field: SerializeField]
+    public PlayerProps playerProps;
 
     #region Components
     //Components
@@ -81,6 +83,7 @@ public class Player : MonoBehaviour
     {
         playerHealth = playerProps.maxHealth;
         playerBaseDamage = playerProps.baseDamage;
+        playerMaxHealth = playerProps.maxHealth;
 
         stateMachine = new StateMachine();
 
@@ -103,7 +106,6 @@ public class Player : MonoBehaviour
         #endregion
 
     }
-
 
 
     // Start is called before the first frame update
@@ -138,6 +140,17 @@ public class Player : MonoBehaviour
     {
         stateMachine.CurrentState.PhysicsUpdate();
     }
+
+    #region Position
+
+    public void SetWorldSpawnPosition()
+    {
+        Vector3 spawnPosition = this.transform.position;
+        spawnPosition.y -= .2f;
+        this.playerProps.worldSpawnPosition = spawnPosition;
+    }
+
+    #endregion
 
     #region Set Movement Functions
     public void SetVelocityX(float inputHorizontal)

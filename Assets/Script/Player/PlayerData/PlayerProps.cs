@@ -11,6 +11,8 @@ public class PlayerProps : ScriptableObject
 
     public float maxHealth = 20f;
     public float baseDamage = 3f;
+    public Vector3 worldSpawnPosition;
+    public Vector3 homeSpawnPosition;
 
     [Header("Base State")]
     public float walkSpeed = 1f;

@@ -19,8 +19,6 @@ public class FurDevil : Enemy
 
     private void Awake()
     {
-        this.health = this.enemyData.maxHealth;
-
         enemyStateMachine = new EnemyStateMachine();
 
         FrontIdleState = new FurDevilFrontIdle(this, enemyStateMachine, enemyData, FUR_DEVIL_FRONT_IDLE);
@@ -28,20 +26,6 @@ public class FurDevil : Enemy
         FrontAttackState = new FurDevilFrontAttack(this, enemyStateMachine, enemyData, FUR_DEVIL_FRONT_ATTACK);
         FrontHitState = new FurDevilFrontHit(this, enemyStateMachine, enemyData, FUR_DEVIL_FRONT_HIT);
         FrontDeadState = new FurDevilFrontDead(this, enemyStateMachine, enemyData, FUR_DEVIL_FRONT_DEAD);
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-        rb = gameObject.GetComponent<Rigidbody2D>();
-        animator = gameObject.GetComponent<Animator>();
-        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-
-        enemyStateMachine.Initialize(FrontIdleState);
-
-        spawnPosition = transform.position;
-
     }
 
     // Update is called once per frame

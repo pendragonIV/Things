@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee64565c65b0a2148a59f51d7c33c8c6, type: 3}
   m_Name: PlayerProps
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  maxHealth: 20
+  baseDamage: 3
+  worldSpawnPosition: {x: 3.2709453, y: 0.78781015, z: 0}
+  homeSpawnPosition: {x: -0.8, y: -0.7, z: 0}
+  walkSpeed: 1
+  diagonalWalkSpeed: 0.70710677
+  dashSpeed: 1.5

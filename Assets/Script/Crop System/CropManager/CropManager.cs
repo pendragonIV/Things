@@ -28,8 +28,14 @@ public class CropManager : MonoBehaviour
     public static CropManager instance;
     void Awake()
     {
-        // Initialize the singleton.
-        instance = this;
+        if(instance != null && instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+        }
     }
 
     private void Update()
@@ -131,16 +137,15 @@ public class CropManager : MonoBehaviour
 
     private ItemSO createSpawnCrop()
     {
-        ItemSO newSpawnCrop = new()
-        {
-            ItemName = null,
-            ItemDescription = null,
-            IsStackable = false,
-            MaxStack = 0,
-            purchasePrice = 0,
-            sellPrice = 0,
-            ItemImage = null
-        };
+        ItemSO newSpawnCrop = ScriptableObject.CreateInstance<ItemSO>();
+
+        newSpawnCrop.ItemName = null;
+        newSpawnCrop.ItemDescription = null;
+        newSpawnCrop.IsStackable = false;
+        newSpawnCrop.MaxStack = 0;
+        newSpawnCrop.purchasePrice = 0;
+        newSpawnCrop.sellPrice = 0;
+        newSpawnCrop.ItemImage = null;
 
         return newSpawnCrop;
     }

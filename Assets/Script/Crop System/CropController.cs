@@ -35,6 +35,7 @@ public class CropController : MonoBehaviour
             {
                 Vector3 markedPosition = MarkerController.instance.GetMarkedPosition();
                 Vector3Int markedCellPosition = MarkerController.instance.GetMarkedCellPosition();
+
                 if (!CropManager.instance.isTileEffected(markedCellPosition))
                 {
                      CropManager.instance.Plow(markedCellPosition);
