@@ -51,7 +51,7 @@ MonoBehaviour:
   PlantMinute: 1
   DaysSinceLastWatered: 1
   spriteRenderer: {fileID: 4015427925780077210}
-  cropPosition: {x: -0.24, y: -0.08, z: 10}
+  cropPosition: {x: -0.71999997, y: 0.24, z: 10}
   collectableCrop: {fileID: 7425701612381503179, guid: 9a19884da7768ee44b483e94a9204252, type: 3}
   inventorySO: {fileID: 0}
 --- !u!212 &4015427925780077210

@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 499297535057332458a4cb4ae28b0b0e, type: 3}
-  m_Name: FurDevilData
+  m_Name: BeeData
   m_EditorClassIdentifier: 
-  <maxHealth>k__BackingField: 15
-  <moveSpeed>k__BackingField: 0.7
-  <attackDamage>k__BackingField: 3
-  <attackRange>k__BackingField: 0.13
+  <maxHealth>k__BackingField: 12
+  <moveSpeed>k__BackingField: 0.8
+  <attackDamage>k__BackingField: 5
+  <attackRange>k__BackingField: 0.1
   <whatIsPlayer>k__BackingField:
     serializedVersion: 2
     m_Bits: 64
-  <detectRange>k__BackingField: 1
-  <knockBackForce>k__BackingField: 0.4
+  <detectRange>k__BackingField: 1.2
+  <knockBackForce>k__BackingField: 2

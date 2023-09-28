@@ -39,6 +39,19 @@ public abstract class Enemy : MonoBehaviour
 
     #endregion
 
+    #region Declare States
+    public EnemyState FrontIdleState;
+    public EnemyState FrontAttackState;
+    public EnemyState FrontDeadState;
+    public EnemyState FrontRunState;
+    public EnemyState FrontHitState;
+
+    public EnemyState SideIdleState;
+    public EnemyState SideAttackState;
+    public EnemyState SideDeadState;
+    public EnemyState SideHitState;
+    #endregion
+
     void Start()
     {
 
@@ -72,19 +85,6 @@ public abstract class Enemy : MonoBehaviour
     //Vector 2 for movement
     public Vector2 movement;
     public Vector2 currentVelocity;
-    #endregion
-
-    #region Declare States
-    public EnemyState FrontIdleState;
-    public EnemyState FrontAttackState;
-    public EnemyState FrontDeadState;
-    public EnemyState FrontRunState;
-    public EnemyState FrontHitState;
-
-    public EnemyState SideIdleState;
-    public EnemyState SideAttackState;
-    public EnemyState SideDeadState;
-    public EnemyState SideHitState;
     #endregion
 
     public virtual bool  checkPlayerInRange()
@@ -139,7 +139,7 @@ public abstract class Enemy : MonoBehaviour
 
     public IEnumerator KnockBackTimer()
     {
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.5f);
         SetVelocityX(0);
         SetVelocityY(0);
     }
@@ -158,8 +158,7 @@ public abstract class Enemy : MonoBehaviour
         {
             var player = GameManager.instance.player.GetComponent<Player>();
             player.isPlayerAttacked = true;
-            player.TakeDamage(this.enemyData.attackDamage);
-
+            player.unitHealth.TakeDamage(this.enemyData.attackDamage);
         }
 
     }
@@ -190,14 +189,7 @@ public abstract class Enemy : MonoBehaviour
 
     public void Die()
     {
-        if(this.transform.parent.gameObject != null)
-        {
-            Destroy(this.transform.parent.gameObject);
-        }
-        else
-        {
-            Destroy(this.gameObject);
-        }
+        Destroy(this.gameObject);
     }
 
     #endregion

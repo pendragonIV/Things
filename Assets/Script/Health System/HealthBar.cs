@@ -21,6 +21,7 @@ public class HealthBar : MonoBehaviour
     private void OnEnable()
     {
         unitHealth.OnChange += SetHealth;
+        Debug.Log("Health Bar Enabled");
     }
 
     private void OnDisable()
@@ -39,7 +40,7 @@ public class HealthBar : MonoBehaviour
     {
         if (followObject != null && isFollow)
         {
-            rectTransform.anchoredPosition = followObject.localPosition;
+            //rectTransform.anchoredPosition = followObject.position;
         }
     }
 
@@ -47,6 +48,8 @@ public class HealthBar : MonoBehaviour
     {
         slider.maxValue = maxHealth;
         slider.value = health;
+
+        Debug.Log("Health: " + health + " Max Health: " + maxHealth);
     }
 
 }
