@@ -9,13 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2470d3a93ca30b448843ed5896977060, type: 3}
-  m_Name: Cherry
+  m_Script: {fileID: 11500000, guid: 534e309194c3afc4b8d8b4f77a30e96f, type: 3}
+  m_Name: Peach
   m_EditorClassIdentifier: 
   <IsStackable>k__BackingField: 1
   <MaxStack>k__BackingField: 20
-  <ItemName>k__BackingField: Cherry
-  <ItemDescription>k__BackingField: There is one extra cherry for you
-  <ItemImage>k__BackingField: {fileID: 21300000, guid: 6d211e6c1f653044b9dc4b78a2f769f5, type: 3}
-  purchasePrice: 7
+  <ItemName>k__BackingField: Peach
+  <ItemDescription>k__BackingField: Beautiful, is'nt it?
+  <ItemImage>k__BackingField: {fileID: 21300000, guid: 868a9095ab4bcbf439041736b7e7ab60, type: 3}
+  purchasePrice: 6
   sellPrice: 4
+  isHealAble: 1
+  healAmount: 4

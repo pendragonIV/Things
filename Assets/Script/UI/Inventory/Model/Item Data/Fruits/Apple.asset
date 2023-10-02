@@ -9,13 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2470d3a93ca30b448843ed5896977060, type: 3}
+  m_Script: {fileID: 11500000, guid: 534e309194c3afc4b8d8b4f77a30e96f, type: 3}
   m_Name: Apple
   m_EditorClassIdentifier: 
   <IsStackable>k__BackingField: 1
   <MaxStack>k__BackingField: 20
   <ItemName>k__BackingField: Apple
-  <ItemDescription>k__BackingField: Just an simple apple
+  <ItemDescription>k__BackingField: Oh, it's just a simple apple
   <ItemImage>k__BackingField: {fileID: 21300000, guid: ae196da80060a314e90d71651f03b53b, type: 3}
   purchasePrice: 5
-  sellPrice: 2
+  sellPrice: 3
+  isHealAble: 1
+  healAmount: 3

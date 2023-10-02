@@ -24,6 +24,10 @@ public class BeeDeadState : BeeBaseState
         isDetectingPlayer = true;
         isOutOfRange = false;
         isInAttackRange = true;
+        if (GameManager.instance.player.GetComponent<Player>().enemies.Contains(enemy))
+        {
+            GameManager.instance.player.GetComponent<Player>().enemies.Remove(enemy);
+        }
     }
 
     public override void Exit()

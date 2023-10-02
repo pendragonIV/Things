@@ -25,6 +25,7 @@ public class FurDevilFrontHit : FurDevilBaseState
         isKnokedBack = false;
         enemy.unitHealth.TakeDamage(GameManager.instance.player.GetComponent<Player>().playerBaseDamage);
         enemy.isDead = enemy.CheckDead();
+
     }
 
     public override void Exit()
@@ -49,12 +50,10 @@ public class FurDevilFrontHit : FurDevilBaseState
             }
             
         }
-        else
+
+        if (enemy.isDead)
         {
-            if (enemy.isDead)
-            {
-                enemyStateMachine.ChangeState(enemy.FrontDeadState);
-            }
+            enemyStateMachine.ChangeState(enemy.FrontDeadState);
         }
 
     }

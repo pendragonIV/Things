@@ -19,5 +19,6 @@ public class GameManager : MonoBehaviour
     }
 
     public GameObject player;
+    public BGM bgm;
 
 }

@@ -21,7 +21,6 @@ public class HealthBar : MonoBehaviour
     private void OnEnable()
     {
         unitHealth.OnChange += SetHealth;
-        Debug.Log("Health Bar Enabled");
     }
 
     private void OnDisable()
@@ -49,7 +48,6 @@ public class HealthBar : MonoBehaviour
         slider.maxValue = maxHealth;
         slider.value = health;
 
-        Debug.Log("Health: " + health + " Max Health: " + maxHealth);
     }
 
 }

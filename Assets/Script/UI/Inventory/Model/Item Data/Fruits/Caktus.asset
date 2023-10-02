@@ -9,13 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2470d3a93ca30b448843ed5896977060, type: 3}
-  m_Name: CactusPear
+  m_Script: {fileID: 11500000, guid: 534e309194c3afc4b8d8b4f77a30e96f, type: 3}
+  m_Name: Caktus
   m_EditorClassIdentifier: 
   <IsStackable>k__BackingField: 1
   <MaxStack>k__BackingField: 20
-  <ItemName>k__BackingField: Cactus Pear
-  <ItemDescription>k__BackingField: Just a cactus pear
+  <ItemName>k__BackingField: Caktus Pear
+  <ItemDescription>k__BackingField: Is this edible?
   <ItemImage>k__BackingField: {fileID: 21300000, guid: db18d9dcff209b3418c19e53aa0b7b09, type: 3}
   purchasePrice: 3
-  sellPrice: 1
+  sellPrice: 2
+  isHealAble: 1
+  healAmount: 2

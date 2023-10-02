@@ -138,6 +138,13 @@ public class InventorySO : ScriptableObject
         AddItem(item.Item, item.Quantity);
     }
 
+    public void ChangeQuantity(int itemIndex, int quantity)
+    {
+        items[itemIndex] = items[itemIndex].ChangeQuantity(quantity);
+        
+        InfromDataChange();
+    }
+
     public void DeleteItem(int itemIndex)
     {
 
@@ -178,7 +185,6 @@ public class InventorySO : ScriptableObject
         InventoryItem temp = items[itemIndex];
         items[itemIndex] = items[itemSwapIndex];
         items[itemSwapIndex] = temp;
-
         InfromDataChange();
     }
 
@@ -191,6 +197,7 @@ public class InventorySO : ScriptableObject
     {
         return items.Where(i => i.Item == item).Any();
     }
+
 }
 
 [Serializable]

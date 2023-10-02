@@ -28,6 +28,7 @@ public class Bee : Enemy
         enemyStateMachine.CurrentState.LogicUpdate();
 
         currentVelocity = rb.velocity;
+  
     }
 
     private void FixedUpdate()

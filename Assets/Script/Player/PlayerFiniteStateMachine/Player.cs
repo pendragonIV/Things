@@ -29,6 +29,9 @@ public class Player : MonoBehaviour
     [field: SerializeField]
     public UnitHealth unitHealth { get; set; }
 
+    [field: SerializeField]
+    public List<Enemy> enemies { get; set; }
+
     #region Components
     //Components
     public PlayerInputSystem inputSystem;
@@ -86,6 +89,8 @@ public class Player : MonoBehaviour
         playerBaseDamage = playerProps.baseDamage;
 
         stateMachine = new StateMachine();
+
+        List<Enemy> enemies = new List<Enemy>();
 
         #region Create States
         //Declare each state

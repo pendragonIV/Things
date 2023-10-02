@@ -24,6 +24,10 @@ public class BeeFlyState : BeeBaseState
         isDetectingPlayer = true;
         isInAttackRange = false;
         isOutOfRange = false;
+        if (!GameManager.instance.player.GetComponent<Player>().enemies.Contains(enemy))
+        {
+            GameManager.instance.player.GetComponent<Player>().enemies.Add(enemy);
+        }
     }
 
     public override void Exit()
@@ -64,6 +68,14 @@ public class BeeFlyState : BeeBaseState
         else if (enemy.isHit)
         {
             enemyStateMachine.ChangeState(enemy.FrontHitState);
+        }
+
+        if (isOutOfRange)
+        {
+            if (GameManager.instance.player.GetComponent<Player>().enemies.Contains(enemy))
+            {
+                GameManager.instance.player.GetComponent<Player>().enemies.Remove(enemy);
+            }
         }
     }
 

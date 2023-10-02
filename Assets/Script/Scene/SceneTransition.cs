@@ -11,12 +11,14 @@ public class SceneTransition : MonoBehaviour
         {
             SceneManager.LoadScene("World");
             GameManager.instance.player.transform.position = GameManager.instance.player.GetComponent<Player>().playerProps.worldSpawnPosition;
+           
         }
         else if(this.gameObject.tag == "ToHouse")
         {
             GameManager.instance.player.GetComponent<Player>().SetWorldSpawnPosition();
             SceneManager.LoadScene("House");
             GameManager.instance.player.transform.position = GameManager.instance.player.GetComponent<Player>().playerProps.homeSpawnPosition;
+            
         }
     }
 }

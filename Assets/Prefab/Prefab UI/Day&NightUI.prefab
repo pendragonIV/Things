@@ -157,7 +157,7 @@ MonoBehaviour:
   uiAnimation: {fileID: 6634048798108759771}
   time: {fileID: 4671398192222593809}
   timer: 14500
-  timeScale: 400
+  timeScale: 1
   days: 0
 --- !u!114 &7490283488194341893
 MonoBehaviour:
@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Padding:
     m_Left: 0
     m_Right: 10
-    m_Top: 5
+    m_Top: 10
     m_Bottom: 0
   m_ChildAlignment: 2
   m_StartCorner: 1
@@ -411,8 +411,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 14
+  m_fontSizeBase: 14
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
