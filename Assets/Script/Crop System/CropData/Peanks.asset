@@ -17,7 +17,9 @@ MonoBehaviour:
   <ItemName>k__BackingField: Peanks
   <ItemDescription>k__BackingField: Is that bean?
   <ItemImage>k__BackingField: {fileID: 1427057376, guid: 466b3c0712a673d46bb3323c4dc88595, type: 3}
-  daysToGrow: 3
+  purchasePrice: 15
+  sellPrice: 12
+  daysToGrow: 1
   growProgressSprites:
   - {fileID: 1427057376, guid: 466b3c0712a673d46bb3323c4dc88595, type: 3}
   - {fileID: -478899477, guid: 466b3c0712a673d46bb3323c4dc88595, type: 3}
@@ -26,6 +28,5 @@ MonoBehaviour:
   readyToHarvestSprite: {fileID: 842596795, guid: 466b3c0712a673d46bb3323c4dc88595, type: 3}
   deadCropSprite: {fileID: -700989614, guid: 466b3c0712a673d46bb3323c4dc88595, type: 3}
   itemSpawnSprite: {fileID: -1239898535, guid: 466b3c0712a673d46bb3323c4dc88595, type: 3}
-  purchasePrice: 10
-  sellPrice: 12
   harvestQuantity: 6
+  isAlreadyToHarvest: 0

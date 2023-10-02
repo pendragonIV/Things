@@ -34,6 +34,7 @@ public class FurDevil : Enemy
         enemyStateMachine.CurrentState.LogicUpdate();
 
         currentVelocity = rb.velocity;
+
     }
 
     private void FixedUpdate()

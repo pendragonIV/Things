@@ -171,7 +171,7 @@ public class InventoryPage : MonoBehaviour
 
     private void HandleShowItemActions(InventoryItemHolder holder)
     {
-        
+        OnItemActionRequested?.Invoke(currentSelectIndex);
     }
 
     private void HandleBeginDrag(InventoryItemHolder holder)

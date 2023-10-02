@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using static UnityEditor.Progress;
 
 public class InventoryController : MonoBehaviour
 {
@@ -67,6 +66,7 @@ public class InventoryController : MonoBehaviour
         foreach (var item in inventoryData)
         {
             inventoryPage.UpdateItemData(item.Key, item.Value.Item.ItemImage);
+            inventoryPage.ResetItemDescription();
         }
     }
 
@@ -74,7 +74,7 @@ public class InventoryController : MonoBehaviour
     {
         for (int i = 0; i < playerInventory.InventorySize; i++)
         {
-            if(i >= playerInventory.InventorySize - 9)
+            if(i >= playerInventory.InventorySize - 5)
             {
                 inventoryPage.AddItemHolderToolBar();
             }
@@ -109,7 +109,23 @@ public class InventoryController : MonoBehaviour
 
     private void HandleItemActionRequest(int itemIndex)
     {
-        
+        InventoryItem inventoryItem = playerInventory.GetItemAt(itemIndex);
+        int quantity = inventoryItem.Quantity;
+        if (inventoryItem.IsEmpty) { return; }
+        ItemSO item = inventoryItem.Item;
+
+        if(item is EffectableItemSO)
+        {
+            if((item as EffectableItemSO).isHealAble && GameManager.instance.player.GetComponent<Player>().unitHealth.CurrentHealth < GameManager.instance.player.GetComponent<Player>().unitHealth.CurrentMaxHealth)
+            {
+                GameManager.instance.player.GetComponent<Player>().unitHealth.Heal((item as EffectableItemSO).healAmount);
+                playerInventory.ChangeQuantity(itemIndex, quantity - 1);
+                if(quantity - 1 <= 0)
+                {
+                    playerInventory.DeleteItem(itemIndex);
+                }
+            }
+        }
     }
 
     private void HandleStartDrag(int itemIndex)

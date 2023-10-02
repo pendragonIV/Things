@@ -20,4 +20,4 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   <detectRange>k__BackingField: 1
-  <knockBackForce>k__BackingField: 0.3
+  <knockBackForce>k__BackingField: 0.4

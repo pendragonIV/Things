@@ -18,8 +18,8 @@ MonoBehaviour:
   <ItemDescription>k__BackingField: Is something wrong with this carrot?
   <ItemImage>k__BackingField: {fileID: 21300000, guid: 45187e42ec384e64e98f6e88a1e94f25, type: 3}
   purchasePrice: 20
-  sellPrice: 27
-  daysToGrow: 4
+  sellPrice: 16
+  daysToGrow: 2
   growProgressSprites:
   - {fileID: -231620825, guid: 466b3c0712a673d46bb3323c4dc88595, type: 3}
   - {fileID: -438513170, guid: 466b3c0712a673d46bb3323c4dc88595, type: 3}

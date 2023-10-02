@@ -9,13 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2470d3a93ca30b448843ed5896977060, type: 3}
+  m_Script: {fileID: 11500000, guid: 534e309194c3afc4b8d8b4f77a30e96f, type: 3}
   m_Name: Avocado
   m_EditorClassIdentifier: 
   <IsStackable>k__BackingField: 1
   <MaxStack>k__BackingField: 20
   <ItemName>k__BackingField: Avocado
-  <ItemDescription>k__BackingField: Just an simple Avocado
+  <ItemDescription>k__BackingField: Avocado avocado~
   <ItemImage>k__BackingField: {fileID: 21300000, guid: f64b82b4dd7f8df4fbd5fa723beee0c3, type: 3}
-  purchasePrice: 2
-  sellPrice: 1
+  purchasePrice: 7
+  sellPrice: 5
+  isHealAble: 1
+  healAmount: 5

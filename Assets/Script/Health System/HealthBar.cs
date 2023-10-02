@@ -39,7 +39,7 @@ public class HealthBar : MonoBehaviour
     {
         if (followObject != null && isFollow)
         {
-            rectTransform.anchoredPosition = followObject.localPosition;
+            //rectTransform.anchoredPosition = followObject.position;
         }
     }
 
@@ -47,6 +47,7 @@ public class HealthBar : MonoBehaviour
     {
         slider.maxValue = maxHealth;
         slider.value = health;
+
     }
 
 }

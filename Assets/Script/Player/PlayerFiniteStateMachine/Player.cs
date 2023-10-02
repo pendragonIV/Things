@@ -26,6 +26,11 @@ public class Player : MonoBehaviour
     //Reference to the player props
     [field: SerializeField]
     public PlayerProps playerProps;
+    [field: SerializeField]
+    public UnitHealth unitHealth { get; set; }
+
+    [field: SerializeField]
+    public List<Enemy> enemies { get; set; }
 
     #region Components
     //Components
@@ -81,11 +86,11 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        playerHealth = playerProps.maxHealth;
         playerBaseDamage = playerProps.baseDamage;
-        playerMaxHealth = playerProps.maxHealth;
 
         stateMachine = new StateMachine();
+
+        List<Enemy> enemies = new List<Enemy>();
 
         #region Create States
         //Declare each state
@@ -115,9 +120,14 @@ public class Player : MonoBehaviour
         inputSystem = gameObject.GetComponent<PlayerInputSystem>();
         rb = gameObject.GetComponent<Rigidbody2D>();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        unitHealth = gameObject.GetComponent<UnitHealth>();
 
         //Initialize the state machine with a starting state
         stateMachine.Initialize(frontIdleState);
+
+
+        SetCurrentHealth(playerProps.maxHealth);
+        SetCurrentMaxHealth(playerProps.maxHealth);
     }
 
     // Update is called once per frame
@@ -139,6 +149,15 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
         stateMachine.CurrentState.PhysicsUpdate();
+    }
+
+    public void SetCurrentHealth(float currentHealth)
+    {
+        this.unitHealth.CurrentHealth = currentHealth;
+    }
+    public void SetCurrentMaxHealth(float currentMaxHealth)
+    {
+        this.unitHealth.CurrentMaxHealth = currentMaxHealth;
     }
 
     #region Position
@@ -218,11 +237,14 @@ public class Player : MonoBehaviour
 
     public bool CheckDead()
     {
-        if(playerHealth <= 0)
+        if (this.unitHealth.CurrentHealth <= 0)
         {
             return true;
         }
-        return false;
+        else
+        {
+            return false;
+        }
     }
 
     #endregion

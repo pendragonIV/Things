@@ -10,7 +10,6 @@ using UnityEngine.UI;
 public class DayNightController : MonoBehaviour
 {
     #region Day-Night Cycle Settings
-    private bool isNight;
     [SerializeField]
     private Color dayLightColor = Color.white;
     [SerializeField]
@@ -53,16 +52,22 @@ public class DayNightController : MonoBehaviour
 
     private void Awake()
     {
-        instance = this;
+        if(instance != null && instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            instance = this;
+        }
+
         if(hour > 6 && hour < 18)
         {
             uiAnimation.PlayAnimation(0, 9);
-            isNight = false;
         }
         else
         {
             uiAnimation.PlayAnimation(10, 19);
-            isNight = true;
         }
     }
 
@@ -84,12 +89,12 @@ public class DayNightController : MonoBehaviour
         if(hourInt == 6 && minute == 0)
         {
             uiAnimation.PlayAnimation(0, 9);
-            isNight = false;
+   
         }
         else if(hourInt == 18 && minute == 0)
         {
             uiAnimation.PlayAnimation(10, 19);
-            isNight = true;
+     
         }
 
         if(globalLight != null)
